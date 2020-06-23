@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_now/bloc/restaurant_bloc.dart';
-import 'package:food_now/widgets/restaurant_slider.dart';
+import 'package:food_now/widgets/restaurant_slider_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeWidget extends StatelessWidget {
@@ -14,8 +14,9 @@ class HomeWidget extends StatelessWidget {
     BlocProvider.of<RestaurantBloc>(context).add(RestaurantsRequested());
 
     return Scaffold(
-      // backgroundColor: Colors.transparent,
       appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0.0,
         title: Padding(
           padding: const EdgeInsets.only(
             left: 10,
@@ -32,8 +33,6 @@ class HomeWidget extends StatelessWidget {
             ),
           ),
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
       ),
       body: BlocBuilder<RestaurantBloc, RestaurantState>(
         builder: (context, state) {
@@ -50,7 +49,7 @@ class HomeWidget extends StatelessWidget {
             final itemsList = state.combinedResult.restaurantList.items;
             final genLoc = state.combinedResult.generalLoc;
 
-            return RestaurantSlider(genLoc: genLoc, itemsList: itemsList);
+            return RestaurantSliderWidget(genLoc: genLoc, itemsList: itemsList);
           }
 
           if (state is RestaurantLoadFailure) {

@@ -55,7 +55,7 @@ class HomeWidget extends StatelessWidget {
           if (state is RestaurantLoadFailure) {
             return Center(
               child: Text(
-                'Something went wrong!',
+                'Something went wrong!\nPlease allow location access and\nensure your GPS is working properly.',
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 20.0,

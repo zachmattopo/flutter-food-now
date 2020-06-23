@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+
 class RestaurantUtil {
-  static String apiKey = '1e3c349cc25d35cea4a89cf86995cd6b';
+  static Color accentColor = Color(0xff365eff);
+  static FontWeight accentWeight = FontWeight.w400;
 }

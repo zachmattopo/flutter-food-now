@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:food_now/models/models.dart';
 import 'package:food_now/widgets/widgets.dart';
+import 'package:food_now/utils/utils.dart';
 
 class RestaurantSliderWidget extends StatelessWidget {
   const RestaurantSliderWidget({
@@ -43,13 +44,11 @@ class RestaurantSliderWidget extends StatelessWidget {
                       style: TextStyle(
                         fontFamily: 'Montserrat-SemiBold',
                         fontSize: 18,
-                        color: Color(0xffffffff),
+                        color: Colors.white,
                         height: 1.7777777777777777,
                       ),
                       textAlign: TextAlign.left,
                     ),
-                    // width: 239.0,
-                    // height: 48.0,
                     padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.5, 5.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.only(
@@ -58,7 +57,7 @@ class RestaurantSliderWidget extends StatelessWidget {
                         bottomRight: Radius.circular(100.0),
                         bottomLeft: Radius.circular(26.0),
                       ),
-                      color: const Color(0xff365eff),
+                      color: RestaurantUtil.accentColor,
                     ),
                   ),
                 ],

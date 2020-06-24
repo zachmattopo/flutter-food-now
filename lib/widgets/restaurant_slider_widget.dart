@@ -19,7 +19,7 @@ class RestaurantSliderWidget extends StatelessWidget {
     return Column(
       children: <Widget>[
         Padding(
-          padding: const EdgeInsets.only(right: 15.0),
+          padding: const EdgeInsets.only(right: 15.0, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
@@ -66,43 +66,49 @@ class RestaurantSliderWidget extends StatelessWidget {
           ),
         ),
         Expanded(
-          child: CarouselSlider.builder(
-            options: CarouselOptions(
-              aspectRatio: 0.63,
-              enableInfiniteScroll: false,
-              enlargeCenterPage: true,
-              viewportFraction: 0.65,
-            ),
-            itemCount: itemsList.length,
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return RestaurantDetailWidget(item: itemsList[index]);
-                  }));
-                },
-                child: Hero(
-                  tag: itemsList[index].resId,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black26,
-                          spreadRadius: 1.5,
-                          blurRadius: 1.5,
-                          offset: Offset(1, 1),
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            child: CarouselSlider.builder(
+              options: CarouselOptions(
+                aspectRatio: 0.63,
+                enableInfiniteScroll: false,
+                enlargeCenterPage: true,
+                viewportFraction: 0.65,
+              ),
+              itemCount: itemsList.length,
+              itemBuilder: (BuildContext context, int index) {
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (_) {
+                      return RestaurantDetailWidget(item: itemsList[index]);
+                    }));
+                  },
+                  child: Hero(
+                    tag: itemsList[index].resId,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(vertical: 7.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(24),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black26,
+                              spreadRadius: 1.5,
+                              blurRadius: 1.5,
+                              offset: Offset(1, 1),
+                            ),
+                          ],
                         ),
-                      ],
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 5.0),
+                        child: RestaurantCardWidget(item: itemsList[index]),
+                      ),
                     ),
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 5.0),
-                    child: RestaurantCardWidget(item: itemsList[index]),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
         ),
       ],

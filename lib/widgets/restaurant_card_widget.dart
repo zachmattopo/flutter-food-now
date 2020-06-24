@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_now/models/restaurant_result_item.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:food_now/utils/utils.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class RestaurantCardWidget extends StatelessWidget {
   const RestaurantCardWidget({
@@ -28,23 +29,28 @@ class RestaurantCardWidget extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.all(8.0),
-          child: buildMaterialText(
-            text: item.resName,
-            font: 'Roboto',
-            size: 28.0,
-            weight: FontWeight.w500,
+          child: Align(
+            alignment: Alignment.center,
+            child: buildMaterialText(
+              text: item.resName,
+              font: 'Roboto',
+              size: 28.0,
+              weight: FontWeight.w500,
+              maxLines: 2,
+            ),
           ),
         ),
         Padding(
           padding: EdgeInsets.all(8.0),
           child: Align(
-            alignment: Alignment.topLeft,
+            alignment: Alignment.center,
             child: buildMaterialText(
               text: item.cuisines,
               font: 'Montserrat',
-              size: 16,
+              size: 21,
               weight: RestaurantUtil.accentWeight,
               color: RestaurantUtil.accentColor,
+              maxLines: 1,
             ),
           ),
         ),
@@ -54,7 +60,8 @@ class RestaurantCardWidget extends StatelessWidget {
             padding: EdgeInsets.all(8.0),
             child: buildMaterialText(
               text: item.address,
-              size: 15,
+              size: 23,
+              maxLines: 3,
             ),
           ),
         ),
@@ -64,27 +71,35 @@ class RestaurantCardWidget extends StatelessWidget {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Center(
-                  child: buildMaterialText(
-                    text: '${item.ratingNum} 🌟\n"${item.ratingText}"',
-                    font: 'Montserrat',
-                    size: 16,
-                    weight: RestaurantUtil.accentWeight,
-                    color: RestaurantUtil.accentColor,
-                    align: TextAlign.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Center(
+                    child: buildMaterialText(
+                      text: '${item.ratingNum} 🌟\n"${item.ratingText}"',
+                      font: 'Montserrat',
+                      size: 18,
+                      weight: RestaurantUtil.accentWeight,
+                      color: RestaurantUtil.accentColor,
+                      align: TextAlign.center,
+                      maxLines: 2,
+                    ),
                   ),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Center(
-                  child: buildMaterialText(
-                    text: 'Price range:\n${'💲' * item.priceRange}',
-                    font: 'Montserrat',
-                    size: 16,
-                    weight: RestaurantUtil.accentWeight,
-                    color: RestaurantUtil.accentColor,
-                    align: TextAlign.center,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: buildMaterialText(
+                      text: 'Price:\n${'💲' * item.priceRange}',
+                      font: 'Montserrat',
+                      size: 18,
+                      weight: RestaurantUtil.accentWeight,
+                      color: RestaurantUtil.accentColor,
+                      align: TextAlign.center,
+                      maxLines: 2,
+                    ),
                   ),
                 ),
               ),
@@ -103,12 +118,15 @@ class RestaurantCardWidget extends StatelessWidget {
     FontWeight weight,
     Color color,
     TextAlign align,
+    int maxLines,
   }) {
     return Material(
       color: Colors.transparent,
-      child: Text(
+      child: AutoSizeText(
         text,
         textAlign: align,
+        maxLines: maxLines,
+        overflow: TextOverflow.ellipsis,
         style: GoogleFonts.getFont(
           font ?? 'Lato',
           textStyle: TextStyle(

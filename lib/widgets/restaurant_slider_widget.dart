@@ -38,6 +38,16 @@ class RestaurantSliderWidget extends StatelessWidget {
                 children: <Widget>[
                   // Adobe XD layer: 'Rectangle' (shape)
                   Container(
+                    padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.5, 5.0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(100.0),
+                        topRight: Radius.circular(26.0),
+                        bottomRight: Radius.circular(100.0),
+                        bottomLeft: Radius.circular(26.0),
+                      ),
+                      color: RestaurantUtil.accentColor,
+                    ),
                     child: // Adobe XD layer: 'View All' (text)
                         Text(
                       '${genLoc.place}, ${genLoc.city}',
@@ -48,16 +58,6 @@ class RestaurantSliderWidget extends StatelessWidget {
                         height: 1.7777777777777777,
                       ),
                       textAlign: TextAlign.left,
-                    ),
-                    padding: EdgeInsets.fromLTRB(25.0, 0.0, 25.5, 5.0),
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(100.0),
-                        topRight: Radius.circular(26.0),
-                        bottomRight: Radius.circular(100.0),
-                        bottomLeft: Radius.circular(26.0),
-                      ),
-                      color: RestaurantUtil.accentColor,
                     ),
                   ),
                 ],

@@ -1,9 +1,7 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:food_now/bloc/restaurant_bloc.dart';
-import 'package:food_now/main_bloc_delegate.dart';
 import 'package:food_now/repositories/repositories.dart';
 import 'package:food_now/widgets/widgets.dart';
 import 'package:http/http.dart' as http;
@@ -16,7 +14,7 @@ void main() {
     DeviceOrientation.portraitDown,
   ]);
 
-  BlocSupervisor.delegate = MainBlocDelegate();
+  // BlocSupervisor.delegate = MainBlocDelegate();
 
   final RestaurantRepository restaurantRepository = RestaurantRepository(
     restaurantApiClient: RestaurantApiClient(
@@ -28,11 +26,11 @@ void main() {
 }
 
 class FoodNowApp extends StatelessWidget {
-  final RestaurantRepository restaurantRepository;
-
-  FoodNowApp({Key key, @required this.restaurantRepository})
+  const FoodNowApp({Key key, @required this.restaurantRepository})
       : assert(restaurantRepository != null),
         super(key: key);
+
+  final RestaurantRepository restaurantRepository;
 
   @override
   Widget build(BuildContext context) {

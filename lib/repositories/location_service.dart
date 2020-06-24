@@ -4,7 +4,7 @@ import 'package:location/location.dart';
 class LocationService {
   static UserLocation _currentLocation;
 
-  static var location = Location();
+  static Location location = Location();
 
   static Future<UserLocation> getUserLocation() async {
     bool _serviceEnabled;
@@ -27,13 +27,14 @@ class LocationService {
     }
 
     try {
-      var userLocation = await location.getLocation();
+      final userLocation = await location.getLocation();
       _currentLocation = UserLocation(
         lat: userLocation.latitude,
         long: userLocation.longitude,
       );
-    } on Exception catch (e) {
-      print('Could not get location: ${e.toString()}');
+    } on Exception {
+      // print('Could not get location: ${e.toString()}');
+      return null;
     }
 
     return _currentLocation;

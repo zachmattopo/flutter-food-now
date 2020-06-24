@@ -14,13 +14,13 @@ class RestaurantDetailWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GestureDetector(
+        onTap: () {
+          Navigator.pop(context);
+        },
         child: Hero(
           tag: item.resId,
           child: RestaurantCardWidget(item: item),
         ),
-        onTap: () {
-          Navigator.pop(context);
-        },
       ),
     );
   }

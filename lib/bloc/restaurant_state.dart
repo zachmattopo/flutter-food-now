@@ -12,10 +12,10 @@ class RestaurantInitial extends RestaurantState {}
 class RestaurantLoadInProgress extends RestaurantState {}
 
 class RestaurantLoadSuccess extends RestaurantState {
-  final CombinedResult combinedResult;
-
   const RestaurantLoadSuccess({@required this.combinedResult})
       : assert(combinedResult != null);
+      
+  final CombinedResult combinedResult;
 
   @override
   List<Object> get props => [combinedResult];

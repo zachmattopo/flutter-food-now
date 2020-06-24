@@ -53,6 +53,11 @@ dependencies:
   # https://pub.dev/packages/carousel_slider
   carousel_slider: ^2.1.0
 
+  # Hand-picked, open-source, community-driven collection of lint rules for Dart and Flutter projects.
+  # The set of rules follows the Effective Dart: Style Guide.
+  # https://pub.dev/packages/lint
+  lint: ^1.2.0
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

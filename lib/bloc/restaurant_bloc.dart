@@ -10,10 +10,10 @@ part 'restaurant_event.dart';
 part 'restaurant_state.dart';
 
 class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
-  final RestaurantRepository restaurantRepository;
-
   RestaurantBloc({@required this.restaurantRepository})
       : assert(restaurantRepository != null);
+      
+  final RestaurantRepository restaurantRepository;
 
   @override
   RestaurantState get initialState => RestaurantInitial();
@@ -26,7 +26,8 @@ class RestaurantBloc extends Bloc<RestaurantEvent, RestaurantState> {
       yield RestaurantLoadInProgress();
 
       try {
-        final CombinedResult combinedResult = await restaurantRepository.getRestaurants();
+        final CombinedResult combinedResult =
+            await restaurantRepository.getRestaurants();
 
         if (combinedResult == null) {
           yield RestaurantLoadFailure();

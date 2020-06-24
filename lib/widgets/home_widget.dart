@@ -5,7 +5,7 @@ import 'package:food_now/widgets/restaurant_slider_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeWidget extends StatelessWidget {
-  HomeWidget({
+  const HomeWidget({
     Key key,
   }) : super(key: key);
 
@@ -55,7 +55,11 @@ class HomeWidget extends StatelessWidget {
           if (state is RestaurantLoadFailure) {
             return Center(
               child: Text(
-                'Something went wrong!\nPlease allow location access and\nensure your GPS is working properly.',
+                '''
+                Something went wrong!
+                \nPlease allow location access and
+                \nensure your GPS is working properly.
+                ''',
                 style: TextStyle(
                   color: Colors.red,
                   fontSize: 20.0,
@@ -63,6 +67,8 @@ class HomeWidget extends StatelessWidget {
               ),
             );
           }
+
+          return Center();
         },
       ),
     );

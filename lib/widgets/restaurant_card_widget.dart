@@ -66,7 +66,7 @@ class RestaurantCardWidget extends StatelessWidget {
                 flex: 1,
                 child: Center(
                   child: buildMaterialText(
-                    text: '${item.ratingNum} 🌟\n\"${item.ratingText}\"',
+                    text: '${item.ratingNum} 🌟\n"${item.ratingText}"',
                     font: 'Montserrat',
                     size: 16,
                     weight: RestaurantUtil.accentWeight,
@@ -79,7 +79,7 @@ class RestaurantCardWidget extends StatelessWidget {
                 flex: 1,
                 child: Center(
                   child: buildMaterialText(
-                    text: 'Price range:\n' + '💲' * item.priceRange,
+                    text: 'Price range:\n${'💲' * item.priceRange}',
                     font: 'Montserrat',
                     size: 16,
                     weight: RestaurantUtil.accentWeight,

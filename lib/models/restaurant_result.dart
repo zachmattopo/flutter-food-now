@@ -2,9 +2,9 @@ import 'package:equatable/equatable.dart';
 import 'package:food_now/models/restaurant_result_item.dart';
 
 class RestaurantResult extends Equatable {
-  final List<RestaurantResultItem> items;
-
   const RestaurantResult({this.items});
+  
+  final List<RestaurantResultItem> items;
 
   @override
   List<Object> get props => [items];

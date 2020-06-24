@@ -7,10 +7,10 @@ import 'package:food_now/repositories/location_service.dart';
 import 'package:food_now/models/models.dart';
 
 class RestaurantRepository {
-  final RestaurantApiClient restaurantApiClient;
-
   RestaurantRepository({@required this.restaurantApiClient})
       : assert(restaurantApiClient != null);
+
+  final RestaurantApiClient restaurantApiClient;
 
   Future<CombinedResult> getRestaurants() async {
     final UserLocation userLoc = await LocationService.getUserLocation();

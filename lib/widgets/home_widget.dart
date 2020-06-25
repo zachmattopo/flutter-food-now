@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_flavor/flutter_flavor.dart';
 import 'package:food_now/bloc/restaurant_bloc.dart';
 import 'package:food_now/widgets/restaurant_slider_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,6 +13,7 @@ class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BlocProvider.of<RestaurantBloc>(context).add(RestaurantsRequested());
+    final String _title = FlavorConfig.instance.variables['title'] as String;
 
     return Scaffold(
       appBar: AppBar(
@@ -23,7 +25,7 @@ class HomeWidget extends StatelessWidget {
             top: 10,
           ),
           child: Text(
-            'Food Now...',
+            _title,
             style: GoogleFonts.getFont(
               'Roboto',
               textStyle: TextStyle(

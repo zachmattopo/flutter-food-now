@@ -1,8 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:food_now/models/models.dart';
-import 'package:food_now/widgets/widgets.dart';
 import 'package:food_now/utils/utils.dart';
+import 'package:food_now/widgets/widgets.dart';
 
 class RestaurantSliderWidget extends StatelessWidget {
   const RestaurantSliderWidget({
